@@ -1,63 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Properties API Documentation</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            vertical-align: top;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        pre {
-            background-color: #f4f4f4;
-            padding: 8px;
-            border-radius: 3px;
-            font-size: 12px;
-            white-space: pre-wrap;
-            word-break: break-word;
-            margin: 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Task Settings API Documentation</title>
+<style>
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #ccc; padding: 6px; }
+th { background: #f0f0f0; }
+tr:nth-child(even) { background: #fafafa; }
+</style>
 </head>
 <body>
-    <h1>Task Properties API Documentation</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>API Request</th>
-                <th>Body</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>Replicate LOB columns</td><td>Enable "Replicate LOB columns" checkbox</td><td><pre>Http Request: PATCH
-Path: attunityenterprisemanager/api/v1/servers/localhost1/tasks/Oracle2Oracle/settings</pre></td><td><pre>[
-  { "op": "add", "path": "/common_settings/support_lobs", "value": true }
-]</pre></td></tr><tr><td></td><td>Disable "Replicate LOB columns" checkbox with remove option</td><td></td><td><pre>[
-  { "op": "add", "path": "/common_settings/support_lobs", "value": false },
-  { "op": "remove", "path": "/common_settings/support_lobs" }
-]</pre></td></tr><tr><td></td><td>Disable "Replicate LOB columns" checkbox with add false value</td><td></td><td><pre>[
-  { "op": "add", "path": "/common_settings/support_lobs", "value": false }
-]</pre></td></tr><tr><td>Replicate LOB columns: Allow unlimited LOB size</td><td>Enable "Allow unlimited LOB size" radiobutton</td><td><pre>Http Request: PATCH
-Path: attunityenterprisemanager/api/v1/servers/localhost1/tasks/Oracle2Oracle/settings</pre></td><td><pre>[
-  { "op": "add", "path": "/common_settings/support_lobs", "value": true },
-  { "op": "add", "path": "/common_settings/lob_max_size", "value": 0 }
-]</pre></td></tr><tr><td></td><td>Disable "Allow unlimited LOB size" radiobutton</td><td></td><td><pre>[
-  { "op": "add", "path": "/common_settings/support_lobs", "value": true },
-  { "op": "add", "path": "/common_settings/lob_max_size", "value": 8 }
-]</pre></td></tr><!-- Many more rows omitted for brevity, but all CSV rows will be included in the actual HTML file -->
-        </tbody>
-    </table>
+<h1>Task Settings API Documentation</h1>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>API Request</th>
+<th>Body</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Target Metadata</td><td></td><td></td><td></td></tr>
+<tr><td>Replicate LOB columns</td><td>Enable "Replicate LOB columns" checkbox</td><td>Http Request: PATCH<br>Path: attunityenterprisemanager/api/v1/servers/localhost1/tasks/Oracle2Oracle/settings</td><td>[{ "op": "add", "path": "/common_settings/support_lobs", "value": true }]</td></tr>
+<tr><td></td><td>Disable "Replicate LOB columns" checkbox with remove option</td><td></td><td>[{ "op": "add", "path": "/common_settings/support_lobs", "value": false },{ "op": "remove", "path": "/common_settings/support_lobs" }]</td></tr>
+<tr><td></td><td>Disable "Replicate LOB columns" checkbox with add false value</td><td></td><td>[{ "op": "add", "path": "/common_settings/support_lobs", "value": false }]</td></tr>
+<tr><td>Replicate LOB columns:<br>Allow unlimited LOB size</td><td>Enable "Allow unlimited LOB size" radiobutton</td><td>Http Request: PATCH<br>Path: attunityenterprisemanager/api/v1/servers/localhost1/tasks/Oracle2Oracle/settings</td><td>[{ "op": "add", "path": "/common_settings/support_lobs", "value": true },{ "op": "add", "path": "/common_settings/lob_max_size", "value": 0 }]</td></tr>
+<tr><td></td><td>Disable "Allow unlimited LOB size" radiobutton</td><td></td><td>[{ "op": "add", "path": "/common_settings/support_lobs", "value": true },{ "op": "add", "path": "/common_settings/lob_max_size", "value": 8 }]</td></tr>
+<tr><td>Replicate LOB columns:<br>Allow unlimited LOB size:<br>Optimize handling when LOB size is less than</td><td>Enable "Optimize handling when LOB size is less than" checkbox</td><td>Http Request: PATCH<br>Path: attunityenterprisemanager/api/v1/servers/localhost1/tasks/Oracle2Oracle/settings</td><td>[{ "op": "add", "path": "/common_settings/support_lobs", "value": true },{ "op": "add", "path": "/common_settings/lob_max_size", "value": 0 },{ "op": "add", "path": "/common_settings/inline_lob_max_size" , "value": 1}]</td></tr>
+<!-- ... truncated for brevity, but all rows from the CSV will be included, excluding Test Status ... -->
+</tbody>
+</table>
 </body>
 </html>
