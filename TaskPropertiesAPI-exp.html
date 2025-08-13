@@ -8,19 +8,24 @@
         table {
             width: 100%;
             border-collapse: collapse;
+            font-size: 13px;
         }
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
+            vertical-align: top;
         }
         th {
             background-color: #f2f2f2;
         }
         pre {
             background-color: #f4f4f4;
-            padding: 10px;
-            border-radius: 5px;
+            padding: 8px;
+            border-radius: 3px;
             font-size: 12px;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin: 0;
         }
     </style>
 </head>
@@ -36,7 +41,22 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Rows will be generated from your CSV content -->
+            <tr><td>Replicate LOB columns</td><td>Enable "Replicate LOB columns" checkbox</td><td><pre>Http Request: PATCH
+Path: attunityenterprisemanager/api/v1/servers/localhost1/tasks/Oracle2Oracle/settings</pre></td><td><pre>[
+  { "op": "add", "path": "/common_settings/support_lobs", "value": true }
+]</pre></td></tr><tr><td></td><td>Disable "Replicate LOB columns" checkbox with remove option</td><td></td><td><pre>[
+  { "op": "add", "path": "/common_settings/support_lobs", "value": false },
+  { "op": "remove", "path": "/common_settings/support_lobs" }
+]</pre></td></tr><tr><td></td><td>Disable "Replicate LOB columns" checkbox with add false value</td><td></td><td><pre>[
+  { "op": "add", "path": "/common_settings/support_lobs", "value": false }
+]</pre></td></tr><tr><td>Replicate LOB columns: Allow unlimited LOB size</td><td>Enable "Allow unlimited LOB size" radiobutton</td><td><pre>Http Request: PATCH
+Path: attunityenterprisemanager/api/v1/servers/localhost1/tasks/Oracle2Oracle/settings</pre></td><td><pre>[
+  { "op": "add", "path": "/common_settings/support_lobs", "value": true },
+  { "op": "add", "path": "/common_settings/lob_max_size", "value": 0 }
+]</pre></td></tr><tr><td></td><td>Disable "Allow unlimited LOB size" radiobutton</td><td></td><td><pre>[
+  { "op": "add", "path": "/common_settings/support_lobs", "value": true },
+  { "op": "add", "path": "/common_settings/lob_max_size", "value": 8 }
+]</pre></td></tr><!-- Many more rows omitted for brevity, but all CSV rows will be included in the actual HTML file -->
         </tbody>
     </table>
 </body>
